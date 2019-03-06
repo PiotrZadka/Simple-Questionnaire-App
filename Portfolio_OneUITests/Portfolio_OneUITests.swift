@@ -1,14 +1,14 @@
 //
-//  Portfolio1UITests.swift
-//  Portfolio1UITests
+//  Portfolio_OneUITests.swift
+//  Portfolio_OneUITests
 //
-//  Created by Piotr Zadka on 04/03/2019.
+//  Created by Piotr Zadka on 06/03/2019.
 //  Copyright © 2019 Piotr Zadka. All rights reserved.
 //
 
 import XCTest
 
-class Portfolio1UITests: XCTestCase {
+class Portfolio_OneUITests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

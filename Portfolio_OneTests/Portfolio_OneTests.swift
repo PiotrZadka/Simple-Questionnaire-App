@@ -1,15 +1,15 @@
 //
-//  Portfolio1Tests.swift
-//  Portfolio1Tests
+//  Portfolio_OneTests.swift
+//  Portfolio_OneTests
 //
-//  Created by Piotr Zadka on 04/03/2019.
+//  Created by Piotr Zadka on 06/03/2019.
 //  Copyright © 2019 Piotr Zadka. All rights reserved.
 //
 
 import XCTest
-@testable import Portfolio1
+@testable import Portfolio_One
 
-class Portfolio1Tests: XCTestCase {
+class Portfolio_OneTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
