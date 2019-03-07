@@ -10,18 +10,35 @@ import UIKit
 
 class QuestionOne: UIViewController {
     
+    //recieving user Object
     var data: userData?
 
     @IBOutlet weak var label1: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let text = data{
-            label1.text = text.gender
-        }
     }
     
+    @IBAction func buttonYes(_ sender: Any) {
+        self.performSegue(withIdentifier: "selectedYes", sender: self)
+    }
+    
+    @IBAction func buttonNo(_ sender: Any) {
+        self.performSegue(withIdentifier: "selectedNo", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "selectedYes" {
+            let vc = segue.destination as! SecondQuestion
+            //passing user Object forward
+            vc.userDetails = data
+        }
+        else{
+            let vc = segue.destination as! SecondQuestion_B
+            //passing user Object forward
+            vc.userDetails = data
+        }
+    }
     
 
     /*

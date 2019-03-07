@@ -10,10 +10,11 @@ import UIKit
 
 class SecondQuestion: UIViewController {
 
+    //recieving user Object
+    var userDetails: userData?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
 
