@@ -21,6 +21,9 @@ class ThankYouView: UIViewController {
 
     }
     
+    @IBAction func backButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "backToBeginning", sender: Any?.self)
+    }
     
     @IBAction func loginButton(_ sender: Any) {
         if shouldPerformSegue(withIdentifier: "showResults2", sender: Any?.self) {

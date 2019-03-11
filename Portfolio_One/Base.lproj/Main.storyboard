@@ -445,7 +445,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <state key="normal" title="Back to beginning"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="jv8-dA-WXx"/>
+                                    <action selector="backButton:" destination="YM3-D5-4LF" eventType="touchUpInside" id="PdT-u8-2fV"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="backToBeginning" id="jv8-dA-WXx"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHW-r6-K0L">
@@ -479,8 +480,8 @@
         <image name="stock.jpeg" width="261" height="193"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="opl-Up-y7Q"/>
-        <segue reference="uAP-ny-5zs"/>
+        <segue reference="BUk-l3-Jd7"/>
+        <segue reference="T0W-3j-qDh"/>
         <segue reference="jv8-dA-WXx"/>
     </inferredMetricsTieBreakers>
 </document>
