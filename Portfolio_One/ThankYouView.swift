@@ -9,22 +9,43 @@
 import UIKit
 
 class ThankYouView: UIViewController {
-
+    var userDetails: userData?
+    
+    @IBOutlet weak var backToStart: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func loginButton(_ sender: Any) {
+        if shouldPerformSegue(withIdentifier: "showResults2", sender: Any?.self) {
+            self.performSegue(withIdentifier: "showResults2", sender: Any?.self)
+        }
     }
-    */
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "showResults2" {
+            if passwordField.text == "password" {
+                return true
+            }
+            else
+            {
+                errorLabel.text = "Incorrect password"
+                return false
+            }
+        }
+        else
+        {
+            return false
+        }
+    }
+    
+    
+
 
 }

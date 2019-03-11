@@ -13,8 +13,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var BirthField: UITextField!
     @IBOutlet weak var GenderField: UITextField!
     @IBOutlet weak var idField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var startButton: UIButton!
     
     let genders = ["Male","Female","Rather not say"]
+    let password = "password"
     
     var selectedGender: String?
     var datePicker: UIDatePicker?
@@ -26,6 +31,10 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showResults" {
+            
+        }
+        else if segue.identifier == "showQuestionOne" {
         
         let id = Int(idField.text!)
         let dob = BirthField.text
@@ -35,8 +44,41 @@ class ViewController: UIViewController {
         
         let vc = segue.destination as! QuestionOne
         vc.data = userDetails
+            
+        }
     }
-
+    
+    
+    @IBAction func loginClicked(_ sender: Any) {
+        if shouldPerformSegue(withIdentifier: "showResults", sender: Any?.self) {
+            self.performSegue(withIdentifier: "showResults", sender: Any?.self)
+        }
+    }
+    
+    @IBAction func startClicked(_ sender: Any) {
+        self.performSegue(withIdentifier: "showQuestionOne", sender: Any?.self)
+    }
+    
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "showResults" {
+            if passwordField.text == "password" {
+                return true
+            }
+            else
+            {
+                errorLabel.text = "Incorrect password"
+                return false
+            }
+        }
+        else
+        {
+            return false
+        }
+    }
+    
+    
+    
     func createDatePicker(){
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .date

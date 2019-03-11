@@ -9,22 +9,33 @@
 import UIKit
 
 class FinalView: UIViewController {
-
+    var userDetails: userData?
+    
+    @IBOutlet weak var yesButton: UIButton!
+    @IBOutlet weak var noButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func yesClicked(_ sender: Any) {
+        self.performSegue(withIdentifier: "goToThankYou", sender: self)
+        //add YES to question 3
     }
-    */
-
+    
+    @IBAction func noClicked(_ sender: Any) {
+        self.performSegue(withIdentifier: "goToThankYou", sender: self)
+        //add NO to question 3
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToThankYou" {
+            //add userObject with answers to CoreData
+            let vc = segue.destination as! ThankYouView
+            vc.userDetails = userDetails
+        }
+    }
+    
 }
+
+
