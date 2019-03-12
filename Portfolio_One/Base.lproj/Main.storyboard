@@ -300,6 +300,7 @@
                         <outlet property="imgOther" destination="kXm-6u-qHz" id="nsN-oj-RWX"/>
                         <outlet property="imgSocial" destination="8F7-29-ltE" id="tUc-zg-MvQ"/>
                         <outlet property="imgWork" destination="ZPi-Pg-5zF" id="lDW-6M-VJL"/>
+                        <outlet property="workImage" destination="ZPi-Pg-5zF" id="qFs-Td-mVt"/>
                         <segue destination="Cbp-Z2-3fr" kind="show" identifier="goToFinalQuestion" id="BUk-l3-Jd7"/>
                     </connections>
                 </viewController>

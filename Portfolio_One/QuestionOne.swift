@@ -20,11 +20,12 @@ class QuestionOne: UIViewController {
     }
     
     @IBAction func buttonYes(_ sender: Any) {
+        data?.question1 = "YES"
         self.performSegue(withIdentifier: "selectedYes", sender: self)
-        //add YES to question 1
     }
     
     @IBAction func buttonNo(_ sender: Any) {
+        data?.question1 = "NO"
         self.performSegue(withIdentifier: "selectedNo", sender: self)
     }
     

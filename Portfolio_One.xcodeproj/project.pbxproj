@@ -110,6 +110,7 @@
 				8EA0DEF2222FC9D700279CBA /* Portfolio_OneTests */,
 				8EA0DEFD222FC9D700279CBA /* Portfolio_OneUITests */,
 				8EA0DED9222FC9D600279CBA /* Products */,
+				8EA0DEDB222FC9D600279CBA /* AppDelegate.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,7 +127,6 @@
 		8EA0DEDA222FC9D600279CBA /* Portfolio_One */ = {
 			isa = PBXGroup;
 			children = (
-				8EA0DEDB222FC9D600279CBA /* AppDelegate.swift */,
 				8EA0DEDD222FC9D600279CBA /* ViewController.swift */,
 				8EA0DEDF222FC9D600279CBA /* Main.storyboard */,
 				8EA0DEE5222FC9D700279CBA /* Assets.xcassets */,

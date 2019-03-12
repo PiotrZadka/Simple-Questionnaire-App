@@ -12,10 +12,18 @@ struct userData{
     var id: Int
     var dob: String
     var gender: String
+    var question1: String
+    var question2A: String
+    var question2B: String
+    var question3: String
     
     init(id: Int, dob: String, gender: String){
         self.id = id
         self.dob = dob
         self.gender = gender
+        self.question1 = "not-selected"
+        self.question2A = "not-selected"
+        self.question2B = "not-selected"
+        self.question3 = "not-selected"
     }  
 }

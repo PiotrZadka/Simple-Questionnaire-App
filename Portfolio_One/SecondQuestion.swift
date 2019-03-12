@@ -31,11 +31,12 @@ class SecondQuestion: UIViewController {
         
         // TapGesture can only be attached to one element.
         // Reusing same gesture for multiple elements causes only the last one to work
-        let TapGestureWork = UITapGestureRecognizer(target: self, action: #selector(SecondQuestion.imageTapped))
-        let TapGestureGames = UITapGestureRecognizer(target: self, action: #selector(SecondQuestion.imageTapped))
-        let TapGestureInternet = UITapGestureRecognizer(target: self, action: #selector(SecondQuestion.imageTapped))
-        let TapGestureSocial = UITapGestureRecognizer(target: self, action: #selector(SecondQuestion.imageTapped))
-        let TapGestureOther = UITapGestureRecognizer(target: self, action: #selector(SecondQuestion.imageTapped))
+        
+        let TapGestureWork = UITapGestureRecognizer(target: self, action: #selector(SecondQuestion.imageTappedWork))
+        let TapGestureGames = UITapGestureRecognizer(target: self, action: #selector(SecondQuestion.imageTappedGames))
+        let TapGestureInternet = UITapGestureRecognizer(target: self, action: #selector(SecondQuestion.imageTappedInternet))
+        let TapGestureSocial = UITapGestureRecognizer(target: self, action: #selector(SecondQuestion.imageTappedSocial))
+        let TapGestureOther = UITapGestureRecognizer(target: self, action: #selector(SecondQuestion.imageTappedOther))
         
         self.imgWork.addGestureRecognizer(TapGestureWork)
         self.imgGames.addGestureRecognizer(TapGestureGames)
@@ -45,13 +46,38 @@ class SecondQuestion: UIViewController {
     
     }
     
-    @objc func imageTapped(){
+    
+    //Unsure how I can pass custom parameter in #selector or set a name/title to image so I can easier pass "label" and just use one function.
+    
+    @objc func imageTappedWork(){
+        userDetails?.question2A = "Work"
+        self.performSegue(withIdentifier: "goToFinalQuestion", sender: self)
+    }
+    
+    @objc func imageTappedGames(){
+        userDetails?.question2A = "Games"
+        self.performSegue(withIdentifier: "goToFinalQuestion", sender: self)
+    }
+    
+    @objc func imageTappedInternet(){
+        userDetails?.question2A = "Internet"
+        self.performSegue(withIdentifier: "goToFinalQuestion", sender: self)
+    }
+    
+    @objc func imageTappedSocial(){
+        userDetails?.question2A = "Social Network"
+        self.performSegue(withIdentifier: "goToFinalQuestion", sender: self)
+    }
+    
+    @objc func imageTappedOther(){
+        userDetails?.question2A = "Other"
         self.performSegue(withIdentifier: "goToFinalQuestion", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToFinalQuestion" {
             // add "choice" to question 2A
+            
             let vc = segue.destination as! FinalView
             //passing user Object forward
             vc.userDetails = userDetails
