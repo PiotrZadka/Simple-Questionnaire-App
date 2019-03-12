@@ -26,6 +26,7 @@ class SecondQuestion_B: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // add "rating" to question 2B
+        userDetails?.question2B = rateField.text!
         let vc = segue.destination as! FinalView
         vc.userDetails = userDetails
     }

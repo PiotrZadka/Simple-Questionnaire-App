@@ -20,12 +20,12 @@ class FinalView: UIViewController {
     
     @IBAction func yesClicked(_ sender: Any) {
         self.performSegue(withIdentifier: "goToThankYou", sender: self)
-        //add YES to question 3
+        userDetails?.question3 = "YES"
     }
     
     @IBAction func noClicked(_ sender: Any) {
         self.performSegue(withIdentifier: "goToThankYou", sender: self)
-        //add NO to question 3
+        userDetails?.question3 = "NO"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

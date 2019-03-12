@@ -14,11 +14,12 @@ class SecondQuestion: UIViewController {
     var userDetails: userData?
     
     //image views
-    @IBOutlet weak var imgWork: UIImageView!
+    
     @IBOutlet weak var imgGames: UIImageView!
     @IBOutlet weak var imgInternet: UIImageView!
     @IBOutlet weak var imgSocial: UIImageView!
     @IBOutlet weak var imgOther: UIImageView!
+    @IBOutlet weak var imgWork: UIImageView!
     
     
     override func viewDidLoad() {
@@ -76,8 +77,6 @@ class SecondQuestion: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToFinalQuestion" {
-            // add "choice" to question 2A
-            
             let vc = segue.destination as! FinalView
             //passing user Object forward
             vc.userDetails = userDetails

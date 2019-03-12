@@ -28,6 +28,7 @@
 		8EFF99EB22372BE300FBB42E /* social.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8EFF99E622372BE300FBB42E /* social.jpg */; };
 		8EFF99EC22372BE300FBB42E /* other.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8EFF99E722372BE300FBB42E /* other.jpg */; };
 		8EFF99ED22372BE300FBB42E /* stock.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8EFF99E822372BE300FBB42E /* stock.jpeg */; };
+		8EFF99F42237BC6900FBB42E /* work.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8EFF99F32237BC6900FBB42E /* work.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		8EFF99E622372BE300FBB42E /* social.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = social.jpg; sourceTree = "<group>"; };
 		8EFF99E722372BE300FBB42E /* other.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = other.jpg; sourceTree = "<group>"; };
 		8EFF99E822372BE300FBB42E /* stock.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stock.jpeg; sourceTree = "<group>"; };
+		8EFF99F32237BC6900FBB42E /* work.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = work.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 		8EFF99D92237061000FBB42E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8EFF99F32237BC6900FBB42E /* work.jpeg */,
 				8EFF99E422372BE200FBB42E /* games.png */,
 				8EFF99E522372BE200FBB42E /* internet.jpg */,
 				8EFF99E722372BE300FBB42E /* other.jpg */,
@@ -283,6 +286,7 @@
 				8EA0DEE9222FC9D700279CBA /* LaunchScreen.storyboard in Resources */,
 				8EFF99E922372BE300FBB42E /* games.png in Resources */,
 				8EA0DEE6222FC9D700279CBA /* Assets.xcassets in Resources */,
+				8EFF99F42237BC6900FBB42E /* work.jpeg in Resources */,
 				8EFF99EB22372BE300FBB42E /* social.jpg in Resources */,
 				8EFF99ED22372BE300FBB42E /* stock.jpeg in Resources */,
 				8EA0DEE1222FC9D600279CBA /* Main.storyboard in Resources */,
