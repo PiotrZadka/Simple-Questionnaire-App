@@ -8,18 +8,19 @@
 
 import UIKit
 import CoreData
+import MessageUI
 
-
-class ResultsView: UIViewController,TableViewControllerDelegate {
+class ResultsView: UIViewController,TableViewControllerDelegate,MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var backButton: UIButton!
-    var sampleData:TableViewController = TableViewController()
+    @IBOutlet weak var exportButton: UIButton!
     
-    //testing
+    var sampleData:TableViewController = TableViewController()
     
     @IBOutlet weak var idField: UITextField!
     @IBOutlet weak var retrieveButton: UIButton!
     @IBOutlet weak var containerTable: UIView!
+    @IBOutlet weak var infoLabel: UILabel!
     
     @IBOutlet weak var dobField: UILabel!
     @IBOutlet weak var genderField: UILabel!
@@ -30,6 +31,38 @@ class ResultsView: UIViewController,TableViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    
+    @IBAction func ExportAction(_ sender: Any) {
+        let fileName = "details.csv"
+        let tmpDir = NSURL(fileURLWithPath: NSTemporaryDirectory())
+        let path = tmpDir.appendingPathComponent(fileName)
+        let csvText = "ID,Date of birth,Gender,Q1,Q2A,Q2B,Q3\n"+"\(String(describing: idField.text)),\(String(describing: dobField.text)),\(String(describing: genderField.text)),\(String(describing: q1Field.text)),\(String(describing: q2aField.text)),\(String(describing: q2bField.text)),\(String(describing: q3Field.text)),\n"
+        
+        do {
+            try csvText.write(to: path!, atomically: true, encoding: String.Encoding.utf8)
+            
+            if MFMailComposeViewController.canSendMail() {
+                let emailController = MFMailComposeViewController()
+                emailController.mailComposeDelegate = self
+                emailController.setToRecipients(["sagiroth91@gmail.com"])
+                emailController.setSubject("\(String(describing: idField.text)) user data export")
+                emailController.setMessageBody("User data can be found in the attachment", isHTML: false)
+                
+                emailController.addAttachmentData(NSData(contentsOf: path!)! as Data, mimeType: "text/csv", fileName: fileName)
+                
+                self.present(emailController, animated: true, completion: nil)
+            }
+            infoLabel.text = "File exported and sent"
+        } catch {
+            print("Failed to create file")
+            print("\(error)")
+        }
+    }
+    
+    private func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismiss(animated: true, completion: nil)
     }
     
     func didSelectItem(name: String) {

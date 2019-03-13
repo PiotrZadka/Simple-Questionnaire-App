@@ -30,6 +30,7 @@ class ViewController: UIViewController {
         createDatePicker()
     }
     
+    // Sending model object "userDetails" to next view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showResults" {
             

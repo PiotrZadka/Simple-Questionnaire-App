@@ -241,6 +241,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8s-JT-Feo">
+                                <rect key="frame" x="413" y="493" width="75" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Retrieve"/>
+                                <connections>
+                                    <action selector="clickRetrieve:" destination="2Iq-B5-KvX" eventType="touchUpInside" id="M58-RR-wmw"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJu-UE-Wcg">
                                 <rect key="frame" x="485" y="192" width="263" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -304,15 +313,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8s-JT-Feo">
-                                <rect key="frame" x="485" y="493" width="75" height="38"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBP-2d-Hsj">
+                                <rect key="frame" x="527" y="493" width="128" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Retrieve"/>
+                                <state key="normal" title="Export to CSV"/>
                                 <connections>
-                                    <action selector="clickRetrieve:" destination="2Iq-B5-KvX" eventType="touchUpInside" id="M58-RR-wmw"/>
+                                    <action selector="ExportAction:" destination="2Iq-B5-KvX" eventType="touchUpInside" id="avq-po-Y3C"/>
+                                    <action selector="clickRetrieve:" destination="2Iq-B5-KvX" eventType="touchUpInside" id="h1t-Ma-zzn"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90W-s9-ajH">
+                                <rect key="frame" x="515" y="539" width="152" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="U48-dq-Su4"/>
@@ -321,8 +338,10 @@
                         <outlet property="backButton" destination="6Uw-I5-P7m" id="OYB-X2-nJ5"/>
                         <outlet property="containerTable" destination="Sxa-lC-0M7" id="Lsn-3q-26Z"/>
                         <outlet property="dobField" destination="IJu-UE-Wcg" id="mjC-Yn-o9f"/>
+                        <outlet property="exportButton" destination="qBP-2d-Hsj" id="w1l-cH-yia"/>
                         <outlet property="genderField" destination="bo4-63-Oxv" id="VFt-Dw-gUb"/>
                         <outlet property="idField" destination="kDC-Q4-xgu" id="rkN-Lg-eOf"/>
+                        <outlet property="infoLabel" destination="90W-s9-ajH" id="G0K-Qf-bxp"/>
                         <outlet property="q1Field" destination="r4T-Fc-Lv6" id="NxG-VC-zjy"/>
                         <outlet property="q2aField" destination="EMV-Mq-FH7" id="s9R-6Q-sob"/>
                         <outlet property="q2bField" destination="CDE-fk-W1x" id="4Uz-XW-JAa"/>
