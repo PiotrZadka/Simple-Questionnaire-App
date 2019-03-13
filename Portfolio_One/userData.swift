@@ -21,9 +21,9 @@ struct userData{
         self.id = id
         self.dob = dob
         self.gender = gender
-        self.question1 = "not-selected"
-        self.question2A = "not-selected"
-        self.question2B = "not-selected"
-        self.question3 = "not-selected"
+        self.question1 = "N/A"
+        self.question2A = "N/A"
+        self.question2B = "N/A"
+        self.question3 = "N/A"
     }  
 }
