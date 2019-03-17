@@ -16,6 +16,8 @@ struct userData{
     var question2A: String
     var question2B: String
     var question3: String
+    var latitude: String
+    var longitude: String
     
     init(id: Int, dob: String, gender: String){
         self.id = id
@@ -25,5 +27,7 @@ struct userData{
         self.question2A = "N/A"
         self.question2B = "N/A"
         self.question3 = "N/A"
+        self.longitude = "N/A"
+        self.latitude = "N/A"
     }  
 }

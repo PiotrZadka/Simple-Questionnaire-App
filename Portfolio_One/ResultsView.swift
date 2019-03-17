@@ -28,17 +28,20 @@ class ResultsView: UIViewController,TableViewControllerDelegate,MFMailComposeVie
     @IBOutlet weak var q2aField: UILabel!
     @IBOutlet weak var q2bField: UILabel!
     @IBOutlet weak var q3Field: UILabel!
+    @IBOutlet weak var longField: UILabel!
+    @IBOutlet weak var latField: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    
+    // Converting to csv and sending via email
     @IBAction func ExportAction(_ sender: Any) {
         let fileName = "details.csv"
         let tmpDir = NSURL(fileURLWithPath: NSTemporaryDirectory())
         let path = tmpDir.appendingPathComponent(fileName)
-        let csvText = "ID,Date of birth,Gender,Q1,Q2A,Q2B,Q3\n"+"\(String(describing: idField.text)),\(String(describing: dobField.text)),\(String(describing: genderField.text)),\(String(describing: q1Field.text)),\(String(describing: q2aField.text)),\(String(describing: q2bField.text)),\(String(describing: q3Field.text)),\n"
+        let csvText = "ID,Date of birth,Gender,Q1,Q2A,Q2B,Q3\n"+"\(String(describing: idField.text)),\(String(describing: dobField.text)),\(String(describing: genderField.text)),\(String(describing: q1Field.text)),\(String(describing: q2aField.text)),\(String(describing: q2bField.text)),\(String(describing: q3Field.text)),\(String(describing: longField.text)),\(String(describing: latField.text)) \n"
         
         do {
             try csvText.write(to: path!, atomically: true, encoding: String.Encoding.utf8)
@@ -55,6 +58,8 @@ class ResultsView: UIViewController,TableViewControllerDelegate,MFMailComposeVie
                 self.present(emailController, animated: true, completion: nil)
             }
             infoLabel.text = "File exported and sent"
+            //Mail prompt successfully
+            
         } catch {
             print("Failed to create file")
             print("\(error)")
@@ -104,6 +109,8 @@ class ResultsView: UIViewController,TableViewControllerDelegate,MFMailComposeVie
                 q2aField.text = data.value(forKey: "question2A") as? String
                 q2bField.text = data.value(forKey: "question2B") as? String
                 q3Field.text = data.value(forKey: "question3") as? String
+                longField.text = data.value(forKey: "longitude") as? String
+                latField.text = data.value(forKey: "latitude") as? String
             }
    
         } catch {

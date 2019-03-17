@@ -4,12 +4,14 @@
         <attribute name="dob" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="question1" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="question2A" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="question2B" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="question3" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="UserData" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="UserData" positionX="-63" positionY="-18" width="128" height="180"/>
     </elements>
 </model>

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var BirthField: UITextField!
     @IBOutlet weak var GenderField: UITextField!
@@ -18,16 +19,79 @@ class ViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
     
+    @IBOutlet weak var latitudeValue: UILabel!
+    @IBOutlet weak var longitudeValue: UILabel!
+
+    @IBOutlet weak var locationButton: UIButton!
+    
+    
+    var longiValue: Double?
+    var latiValue: Double?
+    
+    
     let genders = ["Male","Female","Rather not say"]
     let password = "password"
     
+    //location instance
+    let locationManager = CLLocationManager()
+    
     var selectedGender: String?
     var datePicker: UIDatePicker?
+    
+    var userDetails = userData(id: 0, dob: "N/A", gender: "N/A")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         createGenderPicker()
         createDatePicker()
+    }
+    
+    @IBAction func clickLocation(_ sender: Any) {
+        //ask for permission and retrieve user current location
+        location()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let currentLocation = locations.last {
+            let latitude = "\(currentLocation.coordinate.latitude)"
+            let longitude = "\(currentLocation.coordinate.longitude)"
+            
+            latitudeValue.text = latitude
+            longitudeValue.text = longitude
+            
+            userDetails.latitude = latitude
+            userDetails.longitude = longitude
+        }
+    }
+    
+    // Asking for permission to use GPS and retrieve data
+    func location(){
+        
+        let status = CLLocationManager.authorizationStatus()
+        switch status{
+        //1
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+            return
+            
+        //
+        case .denied, .restricted:
+            let alert = UIAlertController(title: "Location Services disabled", message: "Please enable Location Services in Settings", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            
+            present(alert, animated: true, completion: nil)
+            return
+            
+        case .authorizedAlways, .authorizedWhenInUse:
+            longiValue = locationManager.location?.coordinate.longitude
+            latiValue = locationManager.location?.coordinate.latitude
+            break
+            
+        }
+        
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
     }
     
     // Sending model object "userDetails" to next view
@@ -37,17 +101,21 @@ class ViewController: UIViewController {
         }
         else if segue.identifier == "showQuestionOne" {
         
+        // Setting user details to model
         let id = Int(idField.text!)
         let dob = BirthField.text
         let gender = GenderField.text
-        
-        let userDetails = userData(id: id!, dob: dob!, gender: gender!)
+            
+            userDetails.id = id!
+            userDetails.dob = dob!
+            userDetails.gender = gender!
         
         let vc = segue.destination as! QuestionOne
         vc.data = userDetails
             
         }
     }
+
     
     
     @IBAction func loginClicked(_ sender: Any) {

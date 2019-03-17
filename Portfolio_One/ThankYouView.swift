@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ThankYouView: UIViewController {
+class ThankYouView: UIViewController{
     var userDetails: userData?
     
     @IBOutlet weak var backToStart: UIButton!
@@ -63,6 +63,8 @@ class ThankYouView: UIViewController {
         userAnswers.setValue(userDetails!.question2A, forKey: "question2A")
         userAnswers.setValue(userDetails!.question2B, forKey: "question2B")
         userAnswers.setValue(userDetails!.question3, forKey: "question3")
+        userAnswers.setValue(userDetails!.longitude, forKey: "longitude")
+        userAnswers.setValue(userDetails!.latitude, forKey: "latitude")
         
         do{
             try managedContext.save()
